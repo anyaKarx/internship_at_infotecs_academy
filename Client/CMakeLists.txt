@@ -1,0 +1,10 @@
+project(client)
+find_package(Boost 1.64.0 REQUIRED COMPONENTS thread system chrono) 
+
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS}) 
+    set(SOURCE_EXE Client.cpp)
+    set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} ${GCC_CF})
+    add_executable(client ${SOURCE_EXE}) 
+    target_link_libraries(client ${Boost_LIBRARIES})
+endif()
